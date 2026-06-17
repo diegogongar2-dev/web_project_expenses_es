@@ -1,9 +1,7 @@
-// 2. Crear variables iniciales y de estado
-let budgetValue = 0; // Almacena el importe total del presupuesto
-let totalExpensesValue = 0; // Realiza un seguimiento de la suma de todos los gastos
-let balanceColor = "green"; // Almacena el color que representa el estado del saldo
+let budgetValue = 0;
+let totalExpensesValue = 0;
+let balanceColor = "green";
 
-// 3. Crear el array de gastos iniciales (Estructura de matriz/tabla anidada)
 const expenseEntries = [
   ["groceries", 33],
   ["restaurants", 50],
@@ -14,12 +12,10 @@ const expenseEntries = [
   ["subscriptions", 12],
 ];
 
-// 4. Calcular los gastos totales de la lista inicial
 for (const entry of expenseEntries) {
   totalExpensesValue += entry[1];
 }
 
-// 5. Calcular el gasto medio
 function calculateAverageExpense() {
   if (expenseEntries.length === 0) {
     return 0;
@@ -27,12 +23,10 @@ function calculateAverageExpense() {
   return totalExpensesValue / expenseEntries.length;
 }
 
-// 6. Calcular el saldo restante
 function calculateBalance() {
   return budgetValue - totalExpensesValue;
 }
 
-// 7. Cambiar dinámicamente el color del saldo según los fondos remanentes
 function updateBalanceColor() {
   const currentBalance = calculateBalance();
 
@@ -45,7 +39,6 @@ function updateBalanceColor() {
   }
 }
 
-// 8. Calcular las estadísticas acumuladas por cada categoría individual
 function calculateCategoryExpenses(category) {
   let categoryTotal = 0;
 
@@ -58,7 +51,6 @@ function calculateCategoryExpenses(category) {
   return categoryTotal;
 }
 
-// 9. Calcular cuál es la categoría con el gasto acumulado más alto
 function calculateLargestCategory() {
   const categories = [
     "groceries",
@@ -90,7 +82,6 @@ function calculateLargestCategory() {
   return largestCategoryName;
 }
 
-// 10. Añadir nuevos gastos desde la ventana emergente de la interfaz
 function addExpenseEntry(values) {
   expenseEntries.push(values);
   totalExpensesValue += values[1];
